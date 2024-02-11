@@ -45,10 +45,10 @@ export default function TextForm(props) {
 
   return(
     <>
-    <div className='container'>
+    <div className='container' style={{color:props.mode==='dark'?'white':'black'}}>
     <h1>{props.heading}</h1>
     <div className="mb-3"> 
-       <textarea className="form-control" value={text} onChange={handleOnChange} id='myBox' rows="8"> 
+       <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==='dark'?'grey':'white',color:props.mode==='dark'?'white':'black'}} id='myBox' rows="8"> 
         </textarea>
     </div>
 
@@ -63,12 +63,12 @@ export default function TextForm(props) {
 
 
     </div>
-    <div className='container my-3'>
+    <div className='container my-3'  style={{color:props.mode==='dark'?'white':'black'}}>
       <h2>Your Text Summery</h2>
       <p>your word length is {text.split(" ").length} and your numbers of characters is {text.length}</p> 
       <p>{0.008 * text.split(" ").length} Minutes to read </p>   
       <h1>Preview</h1>
-      <p>{text}</p>
+      <p>{text.length>0?text:"Enter something in the textbox above to preview it here"}</p>
     </div>    
     </>
   );
